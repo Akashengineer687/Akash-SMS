@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>PC Monitor Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-icon">▦</span><div><strong>PC Monitor</strong><small>CONTROL CENTER</small></div></div>
+    <nav>
+      <a class="nav-item active" href="#overview">▦ <span>Overview</span></a>
+      <a class="nav-item" href="#computers">▣ <span>Computers</span></a>
+      <a class="nav-item" href="#reports">▤ <span>Reports</span></a>
+    </nav>
+    <div class="sidebar-bottom"><span class="status-dot"></span><div><strong>Demo mode</strong><small>Sample data only</small></div></div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div><p class="eyebrow">WORKSPACE / OVERVIEW</p><h1>PC Monitoring Dashboard</h1><p class="muted">A simple overview of your computer fleet.</p></div>
+      <div class="top-actions"><span class="demo-pill"><span class="status-dot"></span> DEMO DATA</span><button id="refreshBtn" class="btn btn-secondary">↻ Refresh demo</button></div>
+    </header>
+
+    <section id="overview">
+      <div class="summary-grid">
+        <article class="summary-card"><div class="card-top"><span>Registered PCs</span><span class="card-icon blue">▣</span></div><div class="big-number" id="pcCount">4</div><div class="card-foot"><span class="status-dot"></span> Demo computers</div></article>
+        <article class="summary-card"><div class="card-top"><span>Online</span><span class="card-icon green">⌁</span></div><div class="big-number" id="onlineCount">3</div><div class="card-foot">Currently marked online</div></article>
+        <article class="summary-card"><div class="card-top"><span>Average CPU</span><span class="card-icon purple">◴</span></div><div class="big-number" id="avgCpu">38<span class="unit">%</span></div><div class="progress"><span id="avgCpuBar" style="width:38%"></span></div></article>
+        <article class="summary-card"><div class="card-top"><span>Average RAM</span><span class="card-icon orange">▤</span></div><div class="big-number" id="avgRam">61<span class="unit">%</span></div><div class="progress orange-progress"><span id="avgRamBar" style="width:61%"></span></div></article>
+      </div>
+    </section>
+
+    <section class="section" id="computers">
+      <div class="section-heading"><div><h2>Computers</h2><p class="muted">Example data for layout preview. Not live telemetry.</p></div><div class="filters"><input id="searchInput" type="search" placeholder="Search computers…" aria-label="Search computers"><select id="statusFilter" aria-label="Filter by status"><option value="all">All statuses</option><option value="Online">Online</option><option value="Offline">Offline</option></select></div></div>
+      <div class="table-wrap"><table><thead><tr><th>COMPUTER</th><th>STATUS</th><th>CPU</th><th>RAM</th><th>DISK USED</th><th>NETWORK</th></tr></thead><tbody id="computerRows"></tbody></table></div>
+      <p id="emptyState" class="empty hidden">No computers match your search.</p>
+    </section>
+
+    <section class="section report-section" id="reports">
+      <div class="section-heading"><div><h2>Reports</h2><p class="muted">Export the currently listed demo records as CSV.</p></div><button id="exportBtn" class="btn btn-primary">⇩ Export CSV</button></div>
+      <div class="report-card"><div class="report-symbol">▤</div><div><strong>Computer status report</strong><p class="muted">Name, status, CPU, RAM, disk and network snapshot.</p></div><span class="report-format">CSV</span></div>
+    </section>
+    <footer>PC Monitor · GitHub Pages demo · No data is sent to a server.</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
